@@ -1,5 +1,6 @@
 mod server;
+mod client;
 
 fn main() {
-    println!("Hello, world!");
+    server::run_server().expect("Error while starting server");
 }
