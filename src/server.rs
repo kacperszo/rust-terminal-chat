@@ -46,8 +46,7 @@ fn handle_client_connection(mut client: Client, clients: Arc<Mutex<Vec<Client>>>
     clients_lock.retain(|c| c.address != client_address);
 }
 
-pub(crate) fn run_server() -> std::io::Result<()> {
-    let port = 8888;
+pub(crate) fn run_server(port: i32) -> std::io::Result<()> {
     let tcp_listener = TcpListener::bind(format!("127.0.0.1:{}", port))?;
     let udp_socket = UdpSocket::bind(format!("127.0.0.1:{}", port))?;
     udp_socket.set_nonblocking(true)?;
